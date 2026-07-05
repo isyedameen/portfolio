@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/* ─── Tailwind CSS v4 Theme Configuration ─── */
+@theme {
+  /* Colors — Stitch Design System */
+  --color-surface: #131313;
+  --color-surface-dim: #131313;
+  --color-surface-bright: #3a3939;
+  --color-surface-container: #201f1f;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-variant: #353534;
+  --color-surface-tint: #c0c1ff;
+
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #c7c4d7;
+  --color-on-background: #e5e2e1;
+  --color-background: #131313;
+
+  --color-primary: #c0c1ff;
+  --color-primary-container: #8083ff;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-on-primary: #1000a9;
+  --color-on-primary-container: #0d0096;
+  --color-on-primary-fixed: #07006c;
+  --color-on-primary-fixed-variant: #2f2ebe;
+  --color-inverse-primary: #494bd6;
+
+  --color-secondary: #ffffff;
+  --color-secondary-container: #cdf200;
+  --color-secondary-fixed: #cdf200;
+  --color-secondary-fixed-dim: #b4d400;
+  --color-on-secondary: #2b3400;
+  --color-on-secondary-container: #5a6b00;
+  --color-on-secondary-fixed: #181e00;
+  --color-on-secondary-fixed-variant: #3f4c00;
+
+  --color-tertiary: #ffb783;
+  --color-tertiary-container: #d97721;
+  --color-tertiary-fixed: #ffdcc5;
+  --color-tertiary-fixed-dim: #ffb783;
+  --color-on-tertiary: #4f2500;
+  --color-on-tertiary-container: #452000;
+  --color-on-tertiary-fixed: #301400;
+  --color-on-tertiary-fixed-variant: #703700;
+
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  --color-outline: #908fa0;
+  --color-outline-variant: #464554;
+
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+
+  --color-accent-violet: #6366f1;
+  --color-accent-indigo: #818cf8;
+
+  /* Light mode colors */
+  --color-light-surface: #faf8f7;
+  --color-light-surface-container: #f0eeee;
+  --color-light-surface-container-high: #e8e6e5;
+  --color-light-on-surface: #1c1b1b;
+  --color-light-on-surface-variant: #464554;
+  --color-light-background: #faf8f7;
+
+  /* Spacing */
+  --spacing-stack-lg: 48px;
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 24px;
+  --spacing-margin-mobile: 24px;
+  --spacing-margin-desktop: 80px;
+  --spacing-section-gap: 140px;
+  --spacing-gutter: 32px;
+  --spacing-container-max: 1536px;
+
+  /* Font Families */
+  --font-display: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-body: "Geist", sans-serif;
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 2s infinite;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-slide-up: slide-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fade-in: fade-in 0.8s ease forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+/* ─── Base Styles ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+}
+
+/* ─── Light Theme Override ─── */
+.light body,
+.light {
+  background-color: var(--color-light-surface) !important;
+  color: var(--color-light-on-surface) !important;
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light .glass-nav {
+  background: rgba(250, 248, 247, 0.75) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.light .text-on-surface {
+  color: var(--color-light-on-surface);
+}
+
+.light .text-on-surface-variant {
+  color: var(--color-light-on-surface-variant);
+}
+
+.light .bg-surface {
+  background-color: var(--color-light-surface);
+}
+
+.light .bg-surface-container {
+  background-color: var(--color-light-surface-container);
+}
+
+.light .bg-surface-container-high {
+  background-color: var(--color-light-surface-container-high);
+}
+
+.light .border-white\/5,
+.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.light .text-white {
+  color: var(--color-light-on-surface);
+}
+
+/* ─── Glassmorphism ─── */
+.glass {
+  background: rgba(19, 19, 19, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-nav {
+  background: rgba(19, 19, 19, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-strong {
+  background: rgba(19, 19, 19, 0.7);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Background Effects ─── */
+.noise-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.light .grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+.mesh-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+}
+
+/* ─── Contribution Grid ─── */
+.contribution-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: #1c1b1b;
+  transition: background-color 0.3s ease;
+}
+
+.light .contribution-cell {
+  background-color: #e8e6e5;
+}
+
+.contribution-cell.active {
+  background-color: #6366f1;
+  opacity: 0.6;
+}
+
+.contribution-cell.high {
+  background-color: #818cf8;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* ─── Focus Styles for Accessibility ─── */
+*:focus-visible {
+  outline: 2px solid var(--color-accent-indigo);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Loading Screen ─── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #131313;
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-violet), var(--color-accent-indigo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Skill Bar Animation ─── */
+.skill-bar-fill {
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
