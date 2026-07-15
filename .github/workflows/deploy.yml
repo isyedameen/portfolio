@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check secrets
+        run: |
+            echo "HOST=${{ secrets.SSH_HOST }}"
+            echo "USER=${{ secrets.SSH_USER }}"
       - name: Checkout code
         uses: actions/checkout@v4
 
