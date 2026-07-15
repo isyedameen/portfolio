@@ -15,7 +15,7 @@ export const personalInfo = {
   heroDescription:
     "MERN Stack Developer passionate about building modern, scalable and user-friendly web applications with React, Node.js, Express and MongoDB.",
   aboutPhilosophy: {
-    title: "Building M\nWeb Applications.",
+    title: "Building Modern\nWeb Applications.",
     paragraphs: [
       "I recently completed my MERN Stack training and enjoy building modern web applications. My focus is on creating responsive user interfaces and efficient backend solutions.",
       'Through hands-on projects and continuous learning, I have gained practical experience with React, Node.js, Express.js, MongoDB, and REST APIs.',
