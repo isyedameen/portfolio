@@ -11,8 +11,12 @@ jobs:
     steps:
       - name: Check secrets
         run: |
-            echo "HOST=${{ secrets.SSH_HOST }}"
-            echo "USER=${{ secrets.SSH_USER }}"
+          echo "HOST length: ${#SSH_HOST}"
+          echo "USER length: ${#SSH_USER}"
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -37,3 +41,4 @@ jobs:
           remote_host: ${{ secrets.SSH_HOST }}
           remote_user: ${{ secrets.SSH_USER }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote_port: 22
