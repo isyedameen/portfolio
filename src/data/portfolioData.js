@@ -127,81 +127,6 @@ export const experience = [
   },
 ];
 
-export const projects = [
-  {
-    id: 1,
-    title: "ShopFlow E-Commerce",
-    description:
-      "Full-stack e-commerce platform with inventory management, secure checkout, and user dashboard.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
-    category: "Full-Stack",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "DevConnect Social",
-    description:
-      "Developer-focused social platform with real-time messaging, code sharing, and project collaboration.",
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80",
-    tags: ["Next.js", "Socket.io", "PostgreSQL", "Tailwind"],
-    category: "Full-Stack",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "TaskMaster Pro",
-    description:
-      "Project management tool with Kanban boards, team analytics, and intuitive workflow tracking.",
-    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&q=80",
-    tags: ["React", "Express", "MongoDB", "Chart.js"],
-    category: "Apps",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "CloudSync API",
-    description:
-      "Robust REST API with rate limiting, caching, and secure authentication.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-    tags: ["Node.js", "Redis", "JWT", "Express"],
-    category: "Backend",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "HealthTrack Dashboard",
-    description:
-      "Healthcare analytics dashboard with patient data visualization and appointment scheduling.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-    tags: ["React", "D3.js", "Node.js", "MongoDB"],
-    category: "Apps",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "FinLedger Dashboard",
-    description:
-      "Finance tracking dashboard with transaction history and portfolio analytics.",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80",
-    tags: ["React", "Tailwind", "Chart.js"],
-    category: "Full-Stack",
-    github: "https://github.com",
-    demo: "https://demo.com",
-    featured: false,
-  },
-];
-
 
 
 export const services = [
@@ -240,4 +165,4 @@ export const statistics = [
 
 
 
-export const projectCategories = ["All", "Full-Stack", "Apps", "Backend"];
+export const projectCategories = ["All", "Full-Stack", "Frontend", "Apps", "Backend"];

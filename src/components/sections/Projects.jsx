@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
@@ -8,10 +8,10 @@ import {
 } from "lucide-react";
 import { GithubIcon } from "../ui/SocialIcons";
 import {
-  projects,
   projectCategories,
   statistics,
 } from "../../data/portfolioData";
+import { projects } from "../../data/projectsData";
 import SectionHeader from "../ui/SectionHeader";
 import Badge from "../ui/Badge";
 import GlassCard from "../ui/GlassCard";
@@ -133,17 +133,31 @@ export default function Projects() {
             >
               {/* Image */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 glass border border-white/10">
-                <img
-                  alt={project.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  src={project.image}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-colors duration-500" />
+                {project.demo ? (
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="block w-full h-full cursor-pointer">
+                    <img
+                      alt={project.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      src={project.image}
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-colors duration-500" />
+                  </a>
+                ) : (
+                  <>
+                    <img
+                      alt={project.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      src={project.image}
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-colors duration-500" />
+                  </>
+                )}
 
                 {/* Featured Badge */}
                 {project.featured && (
-                  <div className="absolute top-4 left-4 glass px-3 py-1 rounded-full border border-accent-violet/30">
+                  <div className="absolute top-4 left-4 glass px-3 py-1 rounded-full border border-accent-violet/30 pointer-events-none">
                     <span className="font-mono text-[10px] text-accent-violet uppercase tracking-wider">
                       Featured
                     </span>
@@ -159,31 +173,51 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <h3 className="font-display text-xl md:text-2xl group-hover:text-accent-indigo transition-colors">
-                  {project.title}
-                </h3>
+                <div className="space-y-1">
+                  <h3 className="font-display text-xl md:text-2xl group-hover:text-accent-indigo transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.tagline && (
+                    <p className="text-xs font-mono text-accent-violet">
+                      {project.tagline}
+                    </p>
+                  )}
+                </div>
 
-                <p className="text-sm text-on-surface-variant leading-relaxed line-clamp-2">
-                  {project.description}
-                </p>
+                <ProjectDescription description={project.description} />
+                <ProjectFeatures features={project.features} />
 
-                <div className="flex gap-4 pt-2">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-mono text-white hover:text-accent-indigo transition-colors"
-                  >
-                    Live Demo <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-mono text-on-surface-variant hover:text-white transition-colors"
-                  >
-                    GitHub <GithubIcon size={12} />
-                  </a>
+                <div className="flex flex-wrap gap-4 pt-2">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-mono text-white hover:text-accent-indigo transition-colors"
+                    >
+                      Live Demo <ExternalLink size={12} />
+                    </a>
+                  )}
+                  {project.frontendGithub && (
+                    <a
+                      href={project.frontendGithub}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-mono text-on-surface-variant hover:text-white transition-colors"
+                    >
+                      Frontend Code <GithubIcon size={12} />
+                    </a>
+                  )}
+                  {project.backendGithub && (
+                    <a
+                      href={project.backendGithub}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-mono text-on-surface-variant hover:text-white transition-colors"
+                    >
+                      Backend Code <GithubIcon size={12} />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.article>
@@ -249,5 +283,74 @@ export default function Projects() {
         </GlassCard>
       </motion.div>
     </section>
+  );
+}
+
+function ProjectDescription({ description }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isClamped, setIsClamped] = useState(false);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const checkClamp = () => {
+      if (textRef.current) {
+        setIsClamped(textRef.current.scrollHeight > textRef.current.clientHeight);
+      }
+    };
+    const timer = setTimeout(checkClamp, 100);
+    window.addEventListener('resize', checkClamp);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkClamp);
+    };
+  }, [description]);
+
+  return (
+    <div 
+      className={`group/desc ${isClamped || isExpanded ? "cursor-pointer" : ""}`}
+      onClick={() => (isClamped || isExpanded) && setIsExpanded(!isExpanded)}
+    >
+      <p 
+        ref={textRef}
+        className={`text-sm text-on-surface-variant leading-relaxed transition-all ${
+          isExpanded ? "" : "line-clamp-2"
+        }`}
+      >
+        {description}
+      </p>
+      {(isClamped || isExpanded) && (
+        <button className="text-xs font-mono text-accent-violet mt-1 opacity-80 group-hover/desc:opacity-100 transition-opacity">
+          {isExpanded ? "Show less" : "Read more"}
+        </button>
+      )}
+    </div>
+  );
+}
+
+function ProjectFeatures({ features }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  if (!features || features.length === 0) return null;
+
+  const showToggle = features.length > 3;
+  const visibleFeatures = isExpanded ? features : features.slice(0, 3);
+
+  return (
+    <div 
+      className={`space-y-1 pt-1 group/feat ${showToggle ? "cursor-pointer" : ""}`}
+      onClick={() => showToggle && setIsExpanded(!isExpanded)}
+    >
+      <ul className="text-xs text-on-surface-variant/80 list-disc list-inside space-y-1">
+        {visibleFeatures.map((feature, i) => (
+          <li key={i}>{feature}</li>
+        ))}
+      </ul>
+      {showToggle && (
+        <button 
+          className="text-xs font-mono text-accent-violet mt-1 opacity-80 group-hover/feat:opacity-100 transition-opacity block"
+        >
+          {isExpanded ? "Show less features" : `+${features.length - 3} more`}
+        </button>
+      )}
+    </div>
   );
 }
