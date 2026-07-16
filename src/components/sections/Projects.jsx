@@ -90,7 +90,7 @@ export default function Projects() {
           </div>
 
           {/* Filter Pills */}
-          <div className="flex gap-2 glass p-1 rounded-full border border-white/10">
+          <div className="flex flex-wrap gap-2 glass p-1 rounded-2xl sm:rounded-full border border-white/10">
             {projectCategories.map((cat) => (
               <button
                 key={cat}

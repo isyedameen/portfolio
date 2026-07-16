@@ -33,7 +33,7 @@ export const personalInfo = {
   location: "Kannur, Kerala, India",
   availability:
     "Whether you have a project idea, freelance opportunity, or full-time role, I'd love to hear from you.",
-  resumeUrl: "#",
+  resumeUrl: "/resume.pdf",
   socialLinks: {
     github: "https://github.com/isyedameen",
     linkedin: "https://linkedin.com/in/isyedameen",

@@ -84,7 +84,7 @@ export default function Navbar({ theme, toggleTheme }) {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center cursor-pointer"
+            className="md:hidden w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {isOpen ? (
@@ -100,7 +100,7 @@ export default function Navbar({ theme, toggleTheme }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] bg-surface/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-[99] bg-surface/95 backdrop-blur-xl flex flex-col items-center justify-center gap-6 overflow-y-auto py-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

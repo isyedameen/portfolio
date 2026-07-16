@@ -159,7 +159,7 @@ export default function About() {
 
           {/* Floating Detail Card */}
           <motion.div
-            className="mt-6 glass rounded-xl border border-white/10 p-5 flex items-center justify-between"
+            className="mt-6 glass rounded-xl border border-white/10 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

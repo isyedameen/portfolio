@@ -94,7 +94,7 @@ export default function Contact() {
             <p className="font-mono text-xs text-on-surface-variant uppercase tracking-widest">
               LET'S CONNECT
             </p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-4 sm:gap-6">
               {[
                 { label: "GitHub", href: socialLinks.github },
                 { label: "LinkedIn", href: socialLinks.linkedin },
@@ -128,7 +128,7 @@ export default function Contact() {
               <span className="font-mono text-xs text-accent-indigo uppercase block mb-1">
                 Email Me
               </span>
-              <span className="font-display text-2xl md:text-3xl">{email}</span>
+              <span className="font-display text-xl sm:text-2xl md:text-3xl">{email}</span>
             </div>
             <div className="relative z-10 w-12 h-12 rounded-full bg-accent-violet flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-500">
               <ArrowUpRight size={20} />

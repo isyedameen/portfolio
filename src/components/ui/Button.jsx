@@ -15,9 +15,9 @@ export default function Button({
 
   const variants = {
     primary:
-      "px-10 py-5 bg-accent-violet text-white shadow-[0_20px_50px_-10px_rgba(99,102,241,0.4)] hover:-translate-y-1 hover:shadow-[0_25px_60px_-10px_rgba(99,102,241,0.5)]",
+      "px-6 py-4 md:px-10 md:py-5 bg-accent-violet text-white shadow-[0_20px_50px_-10px_rgba(99,102,241,0.4)] hover:-translate-y-1 hover:shadow-[0_25px_60px_-10px_rgba(99,102,241,0.5)]",
     secondary:
-      "px-10 py-5 border border-white/10 text-on-surface hover:bg-white/5",
+      "px-6 py-4 md:px-10 md:py-5 border border-white/10 text-on-surface hover:bg-white/5",
     ghost:
       "px-6 py-3 text-on-surface-variant hover:text-white",
     small:

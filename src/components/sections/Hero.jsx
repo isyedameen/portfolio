@@ -39,7 +39,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center pt-24 pb-16 mesh-gradient relative"
+      className="min-h-screen flex items-center pt-32 lg:pt-24 pb-16 mesh-gradient relative"
       onMouseMove={handleMouseMove}
       ref={containerRef}
     >
@@ -103,7 +103,7 @@ export default function Hero() {
             >
               View Projects
             </Button>
-            <Button href={resumeUrl} variant="secondary">
+            <Button href={resumeUrl} download="Syed Ameen.pdf" target="_blank" rel="noopener noreferrer" variant="secondary">
               <ArrowDown size={14} />
               Download Resume
             </Button>
@@ -165,7 +165,7 @@ export default function Hero() {
 
             {/* Floating UI Element 1 */}
             <motion.div
-              className="absolute top-8 right-8 glass px-4 py-2 rounded-xl border border-white/10 shadow-xl"
+              className="hidden sm:block absolute top-8 right-8 glass px-4 py-2 rounded-xl border border-white/10 shadow-xl"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -193,7 +193,7 @@ export default function Hero() {
 
             {/* Floating UI Element 3 */}
             <motion.div
-              className="absolute top-1/2 left-6 glass px-3 py-1.5 rounded-lg border border-white/10 shadow-xl"
+              className="hidden sm:block absolute top-1/2 left-6 glass px-3 py-1.5 rounded-lg border border-white/10 shadow-xl"
               animate={{ y: [0, -5, 0] }}
               transition={{
                 duration: 3.5,
