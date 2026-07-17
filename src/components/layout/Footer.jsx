@@ -25,12 +25,13 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start gap-4">
             <button
               onClick={() => scrollToSection("hero")}
+              aria-label="Go to homepage"
               className="font-display text-2xl tracking-tighter cursor-pointer group"
             >
               Syed Ameen
             </button>
-            <span className="font-mono text-[10px] text-on-surface-variant/50 uppercase tracking-widest">
-              © {currentYear} Ameen. All Rights Reserved.
+            <span className="font-mono text-[10px] text-on-surface-variant/50 tracking-widest">
+              © {currentYear} Syed Ameen. All rights reserved.
             </span>
           </div>
 
