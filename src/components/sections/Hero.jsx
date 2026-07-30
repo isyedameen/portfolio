@@ -149,63 +149,15 @@ export default function Hero() {
             className="relative w-full aspect-square rounded-3xl overflow-hidden glass border border-white/10 shadow-2xl group"
             style={{ x: moveX, y: moveY }}
           >
-            {/* Abstract gradient background instead of image */}
-            <div className="w-full h-full bg-gradient-to-br from-accent-violet/20 via-surface-container to-accent-indigo/20 flex items-center justify-center">
-              <div className="relative">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-gradient-to-br from-accent-violet to-accent-indigo flex items-center justify-center shadow-[0_0_80px_rgba(99,102,241,0.3)]">
-                  <span className="font-display text-5xl md:text-6xl text-white">
-                    {"</>"}
-                  </span>
-                </div>
-                <div className="absolute -inset-4 rounded-3xl border border-accent-violet/20 animate-glow-pulse" />
-              </div>
-            </div>
+            <img
+              src="/profile.png"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
 
             <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
 
-            {/* Floating UI Element 1 */}
-            <motion.div
-              className="hidden sm:block absolute top-8 right-8 glass px-4 py-2 rounded-xl border border-white/10 shadow-xl"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <span className="font-mono text-xs text-accent-indigo">
-                React • Node.js • MongoDB
-              </span>
-            </motion.div>
 
-            {/* Floating UI Element 2 */}
-            <motion.div
-              className="absolute bottom-16 left-8 glass px-4 py-2 rounded-xl border border-white/10 flex items-center gap-3 shadow-xl"
-              animate={{ y: [0, -6, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1.5,
-              }}
-            >
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="font-mono text-xs text-on-surface">
-                Available for Work
-              </span>
-            </motion.div>
-
-            {/* Floating UI Element 3 */}
-            <motion.div
-              className="hidden sm:block absolute top-1/2 left-6 glass px-3 py-1.5 rounded-lg border border-white/10 shadow-xl"
-              animate={{ y: [0, -5, 0] }}
-              transition={{
-                duration: 3.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.8,
-              }}
-            >
-              <span className="font-mono text-[10px] text-accent-violet">
-                ✓ Open to Opportunities
-              </span>
-            </motion.div>
           </motion.div>
 
           {/* Glow effect behind the card */}
