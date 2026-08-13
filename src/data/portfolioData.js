@@ -5,12 +5,12 @@
 export const personalInfo = {
   name: "Syed Ameen",
   initials: "P",
-  title: "Full-Stack MERN Developer",
+  title: "MERN Stack Developer",
   tagline: "// FULL-STACK WEB DEVELOPER",
   heroHeadline: {
-    line1: "Building",
-    accent: "Modern",
-    line3: "Web Applications.",
+    line1: "Hi, I'm",
+    accent: "Syed Ameen",
+    line3: "MERN Developer.",
   },
   heroDescription:
     "MERN Stack Developer passionate about building modern, scalable and user-friendly web applications with React, Node.js, Express and MongoDB.",
